@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory>tests/Feature</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>app</directory>
+        </include>
+    </source>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_MAINTENANCE_DRIVER" value="file"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="BROADCAST_CONNECTION" value="null"/>
+        <env name="CACHE_STORE" value="array"/>
+        <!-- MySQL dédié, pas sqlite en mémoire : plusieurs migrations (convert_all_tables_to_innodb,
+             convert_alertes_type_severite_to_string, add_foreign_keys_camion_id, add_unique_camion_date_to_mesures_table...)
+             utilisent du SQL brut MySQL (ALTER TABLE ... MODIFY, SHOW TABLE STATUS, information_schema)
+             qui échoue purement et simplement sous sqlite. fleet_energy_testing est une base séparée
+             dédiée aux tests, jamais la vraie base (fleet_energy) — voir le README pour la créer :
+             CREATE DATABASE fleet_energy_testing; -->
+        <env name="DB_CONNECTION" value="mysql"/>
+        <env name="DB_HOST" value="127.0.0.1"/>
+        <env name="DB_PORT" value="3306"/>
+        <env name="DB_DATABASE" value="fleet_energy_testing"/>
+        <env name="DB_USERNAME" value="root"/>
+        <env name="DB_PASSWORD" value=""/>
+        <env name="DB_URL" value=""/>
+        <env name="MAIL_MAILER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="OPENWEATHERMAP_API_KEY" value="cle-de-test"/>
+        <env name="ACCES_IDENTIFIANT" value="test-demo"/>
+        <env name="ACCES_MOT_DE_PASSE" value="test-mdp-partage"/>
+        <env name="PULSE_ENABLED" value="false"/>
+        <env name="TELESCOPE_ENABLED" value="false"/>
+        <env name="NIGHTWATCH_ENABLED" value="false"/>
+    </php>
+</phpunit>
