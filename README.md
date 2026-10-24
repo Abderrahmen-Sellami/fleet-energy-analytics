@@ -11,6 +11,17 @@ mesures indépendantes, compare chaque véhicule à une **norme interne de réf�
 énergétique de référence, cible, incertitude) et rend visibles les limites de fiabilité des
 données au lieu de les masquer.
 
+## Aperçu
+
+| | |
+|---|---|
+| ![Accueil](docs/screenshots/01-accueil.png) | ![Norme de référence](docs/screenshots/02-norme-reference.png) |
+| **Accueil** : indicateurs de la flotte, statuts et filtres | **Norme de référence** : statut couleur par véhicule |
+| ![Comparaison des sources](docs/screenshots/03-comparaison-sources.png) | ![Suivi GPS](docs/screenshots/04-suivi-gps.png) |
+| **Comparaison des sources** : écarts et fiabilité mois par mois | **Suivi GPS** : positions de la flotte fictive ; le message en rouge est volontaire, l'application signale qu'une source n'est pas branchée au lieu d'inventer des positions |
+
+*Captures réalisées avec les données fictives de démonstration.*
+
 ## Fonctionnalités
 
 - **Accueil** : indicateurs de la flotte (éco-score, consommation, distance, litres, coût
